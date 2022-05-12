@@ -48,8 +48,8 @@ Input:
 python src/nn_classifier.py --dataset {DATASET} --model {NN_MODEL}
 ```
 Input:
-- {DATASET} represents the given dataset you wish to train the model with. Here, you can put in either `CIFAR_10` or `MNIST_784`.
-- {NN_MODEL} represents the given Neural Network model you wish to apply to the data. Here, you can put in either `numpy` or `tensorflow`.
+- `{DATASET}` represents the given dataset you wish to train the model with. Here, you can put in either `CIFAR_10` or `MNIST_784`.
+- `{NN_MODEL}` represents the given Neural Network model you wish to apply to the data. Here, you can put in either `numpy` or `tensorflow`.
 
 ## 5. Discussion of results
 
