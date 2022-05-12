@@ -45,7 +45,6 @@ def parse_args():
     return args 
 
 """" Data loading and splitting functions """
-
 # For the MNIST_784 dataset
 def MNIST_784():
     # fetch MNIST_784 from OpenML
