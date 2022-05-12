@@ -3,8 +3,7 @@ Image classification using a Logistic Regression model
 """
 # Import the relevant packages
  # base tools
-import os
-import sys
+import os, sys
 import argparse
  # data analysis
 import pandas as pd
@@ -21,23 +20,38 @@ from tensorflow.keras.datasets import cifar10
  # image processing
 import cv2
 
+""" Basic functions """
+
 # Min-max normalisation function
 def minmax(data):
     X_norm = (data-data.min())/(data.max()-data.min())
     return X_norm    
 
-# Function to save report as TXT
+# Function to save classification report as TXT
 def report_to_txt(report, name):
     outpath = os.path.join("out", f"lr_report_{name}.txt")
     with open(outpath,"w") as file:
         file.write(str(report))
-        
-# Function to load, split and train a model on the MNIST_784 dataset
+
+# Argument parser
+def parse_args():
+    ap = argparse.ArgumentParser()
+    # dataset argument (choose between MNIST_784 and CIFAR_10)
+    ap.add_argument("-d", 
+                    "--dataset", 
+                    required = True, 
+                    help = "The dataset to train your model with, MNIST_784 or CIFAR_10")
+    args = vars(ap.parse_args())
+    return args 
+
+"""" Data loading and splitting functions """
+
+# For the MNIST_784 dataset
 def MNIST_784():
     # fetch MNIST_784 from OpenML
     X, y = fetch_openml("mnist_784", return_X_y = True)
     # get correct labels
-    label = sorted(set(y))
+    labels = sorted(set(y))
     # convert data into numpy arrays
     X = np.array(X)
     y = np.array(y)
@@ -49,20 +63,9 @@ def MNIST_784():
     # min-max normalisation
     X_train_scaled = minmax(X_train)
     X_test_scaled = minmax(X_test)
-    # logistic regression classifier
-    clf = LogisticRegression(penalty = "none",
-                             tol = 0.1,
-                             solver = "saga",
-                             multi_class = "multinomial").fit(X_train_scaled, y_train)
-    # get predictions
-    y_pred = clf.predict(X_test_scaled)
-    # make classification report
-    report = metrics.classification_report(y_test, y_pred)
-    name = "MNIST_784"
-    report_to_txt(report, name)
-    return print(report)
+    return X_train_scaled, X_test_scaled, y_train, y_test, labels
  
-# Function to load, split and train a model on the CIFAR_10 dataset
+# For the CIFAR_10 dataset
 def CIFAR_10():
     # load the data
     (X_train, y_train), (X_test, y_test) = cifar10.load_data()
@@ -88,42 +91,38 @@ def CIFAR_10():
     X_train_dataset = X_train_scaled.reshape((train_nsamples,train_nx*train_ny))
     test_nsamples, test_nx, test_ny = X_test_scaled.shape
     X_test_dataset = X_test_scaled.reshape((test_nsamples,test_nx*test_ny))
-    # logistic regression classifier
+    return X_train_dataset, X_test_dataset, y_train, y_test, labels
+
+""" Logistic Regression classifier """
+def train_log_model(X_train, X_test, y_train, y_test, labels, name):
     clf = LogisticRegression(penalty = "none",
                              tol = 0.1,
                              solver = "saga",
-                             multi_class = "multinomial").fit(X_train_dataset, y_train)
+                             multi_class = "multinomial").fit(X_train, y_train)
     # get predictions
-    y_pred = clf.predict(X_test_dataset)
+    y_pred = clf.predict(X_test)
     # make classification report
-    report = metrics.classification_report(y_test, y_pred, target_names = labels)
-    name = "CIFAR_10"
+    report = metrics.classification_report(y_test, y_pred)
     report_to_txt(report, name)
     return print(report)
 
-# Argument parser
-def parse_args():
-    ap = argparse.ArgumentParser()
-    ap.add_argument("-d", 
-                    "--dataset", 
-                    required = True, 
-                    help = "The dataset to train your model with")
-    args = vars(ap.parse_args())
-    return args 
-
-# Main function
+        
+""" Main function """
 def main():
     args = parse_args()
     # if the dataset is MNIST_784
     if args["dataset"] == "MNIST_784":
-        MNIST_784()
-    
+        (X_train, X_test, y_train, y_test, labels) = MNIST_784()
+        name = "MNIST_784"
+        report = train_log_model(X_train, X_test, y_train, y_test, labels, name)
+    # else, if the dataset is CIFAR_10
     elif args["dataset"] == "CIFAR_10":
-        CIFAR_10()
+        (X_train, X_test, y_train, y_test, labels) = CIFAR_10()
+        name = "CIFAR_10"
+        report = train_log_model(X_train, X_test, y_train, y_test, labels, name)
     
     else:
         pass
-
 
 if __name__=="__main__":
     main()
