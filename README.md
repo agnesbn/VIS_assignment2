@@ -28,7 +28,7 @@ For this assignment, you will take the classifier pipelines we covered in lectur
 Before running the script, run the following in the Terminal:
 ```
 pip install --upgrade pip
-pip install scikit-learn tensorflow opencv-python
+pip install opencv-python scikit-learn tensorflow tensorboard tensorflow-hub pydot scikeras[tensorflow-cpu]
 sudo apt-get update
 sudo apt-get -y install graphviz
 ```
