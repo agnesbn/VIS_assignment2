@@ -5,6 +5,8 @@ The portfolio for __Visual Analytics S22__ consists of 4 projects (3 class assig
 The initial assignment was made partly in collaboration with others from the course, but the final code is my own. I made several adjustments to the code since I first handed it in during the course.
 
 The `neuralnetwork.py` script in the `utils` folder was made by Ross.
+Help from https://medium.com/mlearning-ai/lenet-and-mnist-handwritten-digit-classification-354f5646c590.
+Save history function is based on one made by Ross.
 
 ## 2. Assignment description
 ### Main task
