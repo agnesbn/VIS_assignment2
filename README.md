@@ -67,4 +67,8 @@ python src/nn_classifier.py --dataset {DATASET} --model {NN_MODEL}
 - The output is saved in `out/nn`.
 
 ## 5. Discussion of results
+### CIFAR_10
+Neither of the models performed particularly well on the CIFAR_10 data. The TensorFlow neural network model scored highest with 38% accuracy, the NumPy model followed right after with 37% accuracy, and the logistic regression model scored the lowest with only 31% accuracy. This indicates that complexity of the model asks for more complex models in order to accurately perform classification tasks.
 
+### MNIST_784
+All models scores much higher when trained on the MNIST_784 data. Again, the TensorFlow model was just above the other two with 93% accuracy, but the other two followed close after with 91% accuracy for NumPy and 90% for the logistic regression model. As the data is much more simple (white handwritten digits on a black background), it seems to need a much simpler model to do accurate classification.
