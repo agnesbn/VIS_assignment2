@@ -36,7 +36,7 @@ The script, `logistic_regression.py`, uses different functions to load and proce
 The `nn_classifier.py`-script uses the same loading and processing function as the previously mentioned ones for MNIST_784 and CIFAR_10. The output from these functions are then used in either a NumPy or TensorFlow neural network classification model. The respective model is compiled and trained on the input data, the history is saved, and the final evaluation of the model is saved in the form of a classification report.
 
 ### Bonus tasks
-As for the bonus tasks, I failed to finish 2/3 but I did use ```argparse()``` to allow for the script to be used on either **MNIST_784** or **CIFAR_10** based on input from the command line. Though I did not allow for users to define the number and size of layers in the neural network classifier, I did allow for them to specify which neural network model to apply to the data, either **NumPy** or **TensorFlow**. With more time, the two final bonus tasks could be done by tweaking the scripts I provided here.
+As for the bonus tasks, I did not complete 2/3 but I did use ```argparse()``` to allow for the script to be used on either **MNIST_784** or **CIFAR_10** based on input from the command line. Though I did not allow for users to define the number and size of layers in the neural network classifier, I did allow for them to specify which neural network model to apply to the data, providing a number for different model types: **NumPy**, **TensorFlow**, **ShallowNet**, **LeNet**, and **VGG16**. With more time, the two final bonus tasks could be done by tweaking the scripts I provided here.
 
 ## 4. Usage
 ### Install packages
