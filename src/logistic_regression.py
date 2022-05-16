@@ -29,7 +29,7 @@ def minmax(data):
 
 # Function to save classification report as TXT
 def report_to_txt(report, name):
-    outpath = os.path.join("out", f"lr_report_{name}.txt")
+    outpath = os.path.join("out", "lr", f"report_{name}.txt")
     with open(outpath,"w") as file:
         file.write(str(report))
 
@@ -44,7 +44,7 @@ def parse_args():
     args = vars(ap.parse_args())
     return args 
 
-"""" Data loading and splitting functions """
+"""" Data loading and processing functions """
 # For the MNIST_784 dataset
 def MNIST_784():
     # fetch MNIST_784 from OpenML
@@ -94,6 +94,7 @@ def CIFAR_10():
 
 """ Logistic Regression classifier """
 def train_log_model(X_train, X_test, y_train, y_test, labels, name):
+    # create logistic regression model
     clf = LogisticRegression(penalty = "none",
                              tol = 0.1,
                              solver = "saga",

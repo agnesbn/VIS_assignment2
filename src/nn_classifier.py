@@ -36,7 +36,7 @@ def minmax(data):
 
 # Function to save classification report as TXT
 def report_to_txt(report, name, model):
-    outpath = os.path.join("out", f"nn_report_{name}_{model}.txt")
+    outpath = os.path.join("out", "nn", f"report_{name}_{model}.txt")
     with open(outpath,"w") as file:
         file.write(str(report))
 
