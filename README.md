@@ -49,8 +49,7 @@ sudo apt-get -y install graphviz
 ```
 
 ### Logistic Regression model
-- Make sure to change the current directory to `VIS_assignment2`.
-- Then run.
+- Make sure to change the current directory to `VIS_assignment2` and then run:
 ```
 python src/logistic_regression.py --dataset {DATASET}
 ```
@@ -58,6 +57,7 @@ python src/logistic_regression.py --dataset {DATASET}
 - The output is saved in `out/lr`.
 
 ### Neural Network model
+- Make sure to change the current directory to `VIS_assignment2` and then run:
 ```
 python src/nn_classifier.py --dataset {DATASET} --model {NN_MODEL}
 ```
