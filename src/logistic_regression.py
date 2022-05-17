@@ -29,18 +29,19 @@ def minmax(data):
 
 # Function to save classification report as TXT
 def report_to_txt(report, name):
-    outpath = os.path.join("out", "lr", f"report_{name}.txt")
+    outpath = os.path.join("out", "lr", f"lr_{name}_report.txt")
     with open(outpath,"w") as file:
+        file.write(f"Logistic Regression - Classification report\nData: {name}\n")
         file.write(str(report))
 
 # Argument parser
 def parse_args():
     ap = argparse.ArgumentParser()
-    # dataset argument (choose between MNIST_784 and CIFAR_10)
+    # dataset argument (choose between mnist784 and cifar10)
     ap.add_argument("-d", 
                     "--dataset", 
                     required = True, 
-                    help = "The dataset to train your model with, MNIST_784 or CIFAR_10")
+                    help = "The dataset to train your model with, mnist784 or cifar10")
     args = vars(ap.parse_args())
     return args 
 
@@ -111,12 +112,12 @@ def train_log_model(X_train, X_test, y_train, y_test, labels, name):
 def main():
     args = parse_args()
     # if the dataset is MNIST_784
-    if args["dataset"] == "MNIST_784":
+    if args["dataset"] == "mnist784":
         (X_train, X_test, y_train, y_test, labels) = MNIST_784()
         name = "MNIST_784"
         report = train_log_model(X_train, X_test, y_train, y_test, labels, name)
     # else, if the dataset is CIFAR_10
-    elif args["dataset"] == "CIFAR_10":
+    elif args["dataset"] == "cifar10":
         (X_train, X_test, y_train, y_test, labels) = CIFAR_10()
         name = "CIFAR_10"
         report = train_log_model(X_train, X_test, y_train, y_test, labels, name)
