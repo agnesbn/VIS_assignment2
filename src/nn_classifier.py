@@ -73,7 +73,8 @@ def parse_args():
     # number of epochs to train the model in
     ap.add_argument("-e",
                     "--epochs",
-                    required = True,
+                    default=15,
+                    type=int,
                     help = "The number of epochs to train your model in")
     args = vars(ap.parse_args())
     return args 
@@ -371,7 +372,7 @@ def main():
     # parse arguments
     args = parse_args()
     # get epochs argument
-    epochs = int(args["epochs"])
+    epochs = args["epochs"]
     # if the dataset is MNIST_784
     if args["dataset"] == "mnist784":
         # if the model is tensorflow
