@@ -69,10 +69,11 @@ python src/nn_classifier.py --dataset {DATASET} --model {NN_MODEL}
 - The output is saved in `out/nn`.
 
 ## 5. Discussion of results
-### CIFAR_10
-Neither of the models performed particularly well on the CIFAR_10 data. The **TensorFlow** neural network model scored highest with *38% accuracy*, the **NumPy** model followed right after with *37% accuracy*, and the **logistic regression** model scored the lowest with only *31% accuracy*. This indicates that complexity of the model asks for more complex models in order to accurately perform classification tasks.
+After running each model on both datasets for 15 epochs, the accuracy scores were:
+| Accuracy after<br>15 epochs 	| NumPy 	| TensorFlow 	| ShallowNet 	| LeNet 	|
+|-----------------------------	|-------	|------------	|------------	|-------	|
+| MNIST_784                   	| 0.93  	| 0.91       	| 0.98       	| 0.97  	|
+| CIFAR_10                    	| 0.37  	| 0.40       	| 0.56       	| 0.51  	|
 
-### MNIST_784
-All models scores much higher when trained on the MNIST_784 data. Again, the **TensorFlow** model was just above the other two with *93% accuracy*, but the other two followed close after with *91% accuracy* for **NumPy** and *90%* for the **logistic regression** model. As the data is much more simple (white handwritten digits on a black background), it seems to need a much simpler model to do accurate classification.
 
-Notably, the logistic regression model did not perform a lot worse than the two neural network models in either case. This may have to do with the simplicity of the neural network models used here. Adding more hidden layers as well as convolutional layers would improve the performance of the model.
+
