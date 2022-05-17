@@ -75,4 +75,3 @@ After running each model on both datasets for 15 epochs, the accuracy scores wer
 | **MNIST_784**                   	| 0.93      	| 0.91           	| 0.98           	| 0.97      	|
 | **CIFAR_10**                    	| 0.37      	| 0.40           	| 0.56           	| 0.51      	|
 
-
