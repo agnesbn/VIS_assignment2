@@ -1,0 +1,20 @@
+Neural Network - Classification report
+Data: CIFAR_10
+Model: LeNet
+Epochs: 15
+              precision    recall  f1-score   support
+
+    airplane       0.66      0.47      0.55      1000
+  automobile       0.71      0.54      0.61      1000
+        bird       0.47      0.25      0.33      1000
+         cat       0.33      0.47      0.39      1000
+        deer       0.43      0.42      0.42      1000
+         dog       0.48      0.38      0.42      1000
+        frog       0.46      0.72      0.56      1000
+       horse       0.50      0.63      0.56      1000
+        ship       0.62      0.65      0.63      1000
+       truck       0.58      0.55      0.56      1000
+
+    accuracy                           0.51     10000
+   macro avg       0.52      0.51      0.50     10000
+weighted avg       0.52      0.51      0.50     10000
