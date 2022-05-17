@@ -61,11 +61,11 @@ python src/logistic_regression.py --dataset {DATASET}
 ### Neural Network model
 - Make sure to change the current directory to `VIS_assignment2` and then run:
 ```
-python src/nn_classifier.py --dataset {DATASET} --model {NN_MODEL}
+python src/nn_classifier.py --dataset <DATASET> --model <NN_MODEL>
 ```
 - Input:
-    - `{DATASET}` represents the given dataset you wish to train the model with. Here, you can put in either `CIFAR_10` or `MNIST_784`.
-    - `{NN_MODEL}` represents the given Neural Network model you wish to apply to the data. Here, you can put in `numpy`, `tensorflow`, `shallownet`, `lenet`, or `vgg16`.
+    - `<DATASET>` represents the given dataset you wish to train the model with. Here, you can put in either `CIFAR_10` or `MNIST_784`.
+    - `<NN_MODEL>` represents the given Neural Network model you wish to apply to the data. Here, you can put in `numpy`, `tensorflow`, `shallownet`, `lenet`, or `vgg16`.
 - The output is saved in `out/nn`.
 
 ## 5. Discussion of results
