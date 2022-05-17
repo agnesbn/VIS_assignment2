@@ -1,7 +1,7 @@
 """
 Image classification using a Logistic Regression model
 """
-# Import the relevant packages
+""" Import the relevant packages """
  # base tools
 import os, sys
 import argparse
@@ -21,7 +21,6 @@ from tensorflow.keras.datasets import cifar10
 import cv2
 
 """ Basic functions """
-
 # Min-max normalisation function
 def minmax(data):
     X_norm = (data-data.min())/(data.max()-data.min())

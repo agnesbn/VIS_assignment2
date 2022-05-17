@@ -1,7 +1,7 @@
 """
 Image classification using a Neural Network model
 """
-# Import relevant packages
+""" Import the relevant packages """
  # base tools
 import sys,os
 import datetime
