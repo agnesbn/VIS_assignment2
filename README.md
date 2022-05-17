@@ -45,7 +45,7 @@ As for the bonus tasks, I did not complete 2/3 but I did use ```argparse()``` to
 Before running the script, run the following in the Terminal:
 ```
 pip install --upgrade pip
-pip install *opencv-python *scikit-learn *tensorflow tensorboard tensorflow-hub pydot scikeras[tensorflow-cpu]
+pip install opencv-python scikit-learn tensorflow
 sudo apt-get update
 sudo apt-get -y install graphviz
 ```
