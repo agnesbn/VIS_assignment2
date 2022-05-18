@@ -82,3 +82,8 @@ After running each model on both datasets for 15 epochs, the accuracy scores wer
 The best performing model for both datasets was ShallowNet with 98% accuracy for MNIST_784 and 55% for CIFAR_10. What's more, the training curve for both [MNIST_784](https://github.com/agnesbn/VIS_assignment2/blob/main/out/nn/nn_MNIST_784_sn_history.png) and [CIFAR_10](https://github.com/agnesbn/VIS_assignment2/blob/main/out/nn/nn_CIFAR_10_sn_history.png) suggests that training loss would continuously decrease (and thus accuracy would continue to increase) with longer training time.
 
 ![](out/nn/nn_MNIST_784_sn_history.png))  |  ![](out/nn/nn_CIFAR_10_sn_history.png)
+
+
+MNIST_784                                |  CIFAR_10
+:---------------------------------------:|:---------------------------------------:
+![](out/nn/nn_MNIST_784_sn_history.png)  |  ![](out/nn/nn_CIFAR_10_sn_history.png)
