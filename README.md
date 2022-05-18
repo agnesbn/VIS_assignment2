@@ -8,7 +8,7 @@ The initial assignment was made partly in collaboration with others from the cou
 
 The [`neuralnetwork.py`](https://github.com/agnesbn/VIS_assignment2/blob/main/utils/neuralnetwork.py) script in the `utils` folder was made by Ross and the [`save_history()`](https://github.com/agnesbn/VIS_assignment2/blob/e8f29b235d99b65eaf6a0c4d89936ca5b6608a74/src/nn_classifier.py#L83) function was similarly inspired by one provided by Ross during the course.
 
-Furthermore, [this blog post](https://medium.com/mlearning-ai/lenet-and-mnist-handwritten-digit-classification-354f5646c590) helped me to get the MNIST_784 data into the correct shape to train LeNet and ShallowNet models on it.
+Furthermore, [this blog post](https://medium.com/mlearning-ai/lenet-and-mnist-handwritten-digit-classification-354f5646c590) helped me to get the **MNIST_784** data into the correct shape to train **LeNet** and **ShallowNet** models on it.
 
 ## 2. Assignment description
 ### Main task
@@ -34,17 +34,17 @@ For this assignment, you will take the classifier pipelines we covered in lectur
 ## 3. Methods
 ### Main tasks
 #### Logistic Regression model
-The [`logistic_regression.py`](https://github.com/agnesbn/VIS_assignment2/blob/main/src/logistic_regression.py) script uses different functions to load and process respectively the MNIST_784 and the CIFAR_10 datasets, so that they are returned in the same format, split, normalised and reshaped (if necessary). This data is then used as input in a logistic regression classifier function, which creates a model, predicts classes of the validation data based on the model, and creates and saves a classification report.
+The [`logistic_regression.py`](https://github.com/agnesbn/VIS_assignment2/blob/main/src/logistic_regression.py) script uses different functions to load and process respectively the **MNIST_784** and the **CIFAR_10** datasets, so that they are returned in the same format, split, normalised and reshaped (if necessary). This data is then used as input in a logistic regression classifier function, which creates a model, predicts classes of the validation data based on the model, and creates and saves a classification report.
 
 #### Neural Network model
 The [`nn_classifier.py`](https://github.com/agnesbn/VIS_assignment2/blob/main/src/nn_classifier.py) script uses the same loading and processing functions as the previously mentioned ones. The output from these functions are then used to train a network classification model. The respective model is compiled and trained on the input data, the history is saved, and the final evaluation of the model is saved in the form of a classification report and a history plot.
 
 ### Bonus tasks
-As for the bonus tasks, I did not complete 2/3 but I did use ```argparse()``` to allow for the script to be used on either **MNIST_784** or **CIFAR_10** based on input from the command line. Though I did not allow for users to define the number and size of layers in the neural network classifier, I did allow for them to specify which neural network model to apply to the data, providing a number for different model types: simple neural networks using **NumPy** or **TensorFlow**, and more complex neural networks using either a **ShallowNet** or **LeNet** architecture. With more time, the two final bonus tasks could be done by tweaking the scripts I provided here.
+As for the bonus tasks, I used ```argparse()``` to allow for the script to be used on either **MNIST_784** or **CIFAR_10** based on input from the command line. Though I did not allow for users to define the number and size of layers in the neural network classifier, I did allow for them to specify which neural network model to apply to the data, providing a number for different model types: simple neural networks using **NumPy** or **TensorFlow**, and more complex neural networks using either a **ShallowNet** or **LeNet** architecture. With more time, the two final bonus tasks could be done by tweaking the scripts I have provided in this repository.
 
 ## 4. Usage
 ### Install packages
-Before running the script, run the following in the Terminal:
+Before running the script, run the following from the command line:
 ```
 pip install --upgrade pip
 pip install opencv-python scikit-learn tensorflow
