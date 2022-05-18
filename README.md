@@ -1,12 +1,14 @@
 # Assignment 2 – Image classifier benchmark scripts
 The portfolio for __Visual Analytics S22__ consists of 4 projects (3 class assignments and 1 self-assigned project). This is the __second assignment__ in the portfolio.
 
+Github repository: https://github.com/agnesbn/VIS_assignment2.
+
 ## 1. Contribution
 The initial assignment was made partly in collaboration with others from the course, but the final code is my own. I made several adjustments to the code since I first handed it in during the course.
 
-The `neuralnetwork.py` script in the `utils` folder was made by Ross.
-Help from https://medium.com/mlearning-ai/lenet-and-mnist-handwritten-digit-classification-354f5646c590.
-Save history function is based on one made by Ross.
+The [`neuralnetwork.py`](https://github.com/agnesbn/VIS_assignment2/blob/main/utils/neuralnetwork.py) script in the `utils` folder was made by Ross and the [`save_history()`](https://github.com/agnesbn/VIS_assignment2/blob/e8f29b235d99b65eaf6a0c4d89936ca5b6608a74/src/nn_classifier.py#L83) function was similarly inspired by one provided by Ross during the course.
+
+Furthermore, [this blog post](https://medium.com/mlearning-ai/lenet-and-mnist-handwritten-digit-classification-354f5646c590) helped me to get the MNIST_784 data into the correct shape to train LeNet and ShallowNet models on it.
 
 ## 2. Assignment description
 ### Main task
@@ -32,13 +34,13 @@ For this assignment, you will take the classifier pipelines we covered in lectur
 ## 3. Methods
 ### Main tasks
 #### Logistic Regression model
-The script, `logistic_regression.py`, uses different functions to load and process respectively the MNIST_784 and the CIFAR_10 datasets, so that they are returned in the same format, split, normalised and reshaped (if necessary). This data is then used as input in a logistic regression classifier function, which creates a model, predicts classes of the validation data based on the model, and creates and saves a classification report showing the main classification metrics: precision, recall, f1-score, and accuracy.
+The [`logistic_regression.py`](https://github.com/agnesbn/VIS_assignment2/blob/main/src/logistic_regression.py) script uses different functions to load and process respectively the MNIST_784 and the CIFAR_10 datasets, so that they are returned in the same format, split, normalised and reshaped (if necessary). This data is then used as input in a logistic regression classifier function, which creates a model, predicts classes of the validation data based on the model, and creates and saves a classification report.
 
 #### Neural Network model
-The `nn_classifier.py`-script uses the same loading and processing function as the previously mentioned ones for MNIST_784 and CIFAR_10. The output from these functions are then used in either a NumPy or TensorFlow neural network classification model. The respective model is compiled and trained on the input data, the history is saved, and the final evaluation of the model is saved in the form of a classification report.
+The [`nn_classifier.py`](https://github.com/agnesbn/VIS_assignment2/blob/main/src/nn_classifier.py) script uses the same loading and processing functions as the previously mentioned ones. The output from these functions are then used to train a network classification model. The respective model is compiled and trained on the input data, the history is saved, and the final evaluation of the model is saved in the form of a classification report and a history plot.
 
 ### Bonus tasks
-As for the bonus tasks, I did not complete 2/3 but I did use ```argparse()``` to allow for the script to be used on either **MNIST_784** or **CIFAR_10** based on input from the command line. Though I did not allow for users to define the number and size of layers in the neural network classifier, I did allow for them to specify which neural network model to apply to the data, providing a number for different model types: **NumPy**, **TensorFlow**, **ShallowNet**, **LeNet**, and **VGG16**. With more time, the two final bonus tasks could be done by tweaking the scripts I provided here.
+As for the bonus tasks, I did not complete 2/3 but I did use ```argparse()``` to allow for the script to be used on either **MNIST_784** or **CIFAR_10** based on input from the command line. Though I did not allow for users to define the number and size of layers in the neural network classifier, I did allow for them to specify which neural network model to apply to the data, providing a number for different model types: simple neural networks using **NumPy** or **TensorFlow**, and more complex neural networks using either a **ShallowNet** or **LeNet** architecture. With more time, the two final bonus tasks could be done by tweaking the scripts I provided here.
 
 ## 4. Usage
 ### Install packages
@@ -51,28 +53,30 @@ sudo apt-get -y install graphviz
 ```
 
 ### Logistic Regression model
-- Make sure to change the current directory to `VIS_assignment2` and then run:
+- Make sure your current directory is the `VIS_assignment2` and then run:
 ```
-python src/logistic_regression.py --dataset {DATASET}
+python src/logistic_regression.py --dataset <DATASET>
 ```
-- `{DATASET}` represents the given dataset you wish to train the model with. Here, you can put in either `CIFAR_10` or `MNIST_784`.
-- The output is saved in `out/lr`.
+- `<DATASET>` represents the given dataset you wish to train the model with. Here, you can put in either `cifar10` or `mnist784`.
+- The output is then saved in [`out/lr`](https://github.com/agnesbn/VIS_assignment2/tree/main/out/lr).
 
 ### Neural Network model
-- Make sure to change the current directory to `VIS_assignment2` and then run:
+- Make sure your current directory is the `VIS_assignment2` and then run:
 ```
-python src/nn_classifier.py --dataset <DATASET> --model <NN_MODEL>
+python src/nn_classifier.py --dataset <DATASET> --model <NN_MODEL> (--epochs <EPOCHS>)
 ```
 - Input:
-    - `<DATASET>` represents the given dataset you wish to train the model with. Here, you can put in either `CIFAR_10` or `MNIST_784`.
-    - `<NN_MODEL>` represents the given Neural Network model you wish to apply to the data. Here, you can put in `numpy`, `tensorflow`, `shallownet`, `lenet`, or `vgg16`.
-- The output is saved in `out/nn`.
+    - `<DATASET>` represents the given dataset you wish to train the model with. Here, you can put in either `cifar10` or `mnist784`.
+    - `<NN_MODEL>` represents the given Neural Network model you wish to apply to the data. Here, you can put in `numpy`, `tensorflow`, `shallownet`, or `lenet`.
+    - `<EPOCHS>` represents the number of epochs you wish to train your data in. If the argument is omitted, the default value (15) is used.
+- The output is then saved in [`out/nn`](https://github.com/agnesbn/VIS_assignment2/tree/main/out/nn).
 
 ## 5. Discussion of results
 After running each model on both datasets for 15 epochs, the accuracy scores were:
-| **Accuracy after<br>15 epochs** 	| **NumPy** 	| **TensorFlow** 	| **ShallowNet** 	| **LeNet** 	|
-|---------------------------------	|-----------	|----------------	|----------------	|-----------	|
-| **MNIST_784**                   	| 0.93      	| 0.92           	| 0.98           	| 0.97      	|
-| **CIFAR_10**                    	| 0.37      	| 0.40           	| 0.56           	| 0.51      	|
+| **Accuracy after<br>15 epochs** 	| **Logistic** 	| **NumPy** 	| **TensorFlow** 	| **ShallowNet** 	| **LeNet** 	|
+|---------------------------------	|------------ 	|-----------	|----------------	|----------------	|-----------	|
+| **MNIST_784**                   	| 0.90      	  | 0.93      	| 0.92           	| 0.98           	| 0.97      	|
+| **CIFAR_10**                    	| 0.31      	  | 0.37      	| 0.42           	| 0.55           	| 0.51      	| 
 
 
+The best performing model for both datasets was ShallowNet with 98% accuracy for MNIST_784 and 55% for CIFAR_10.
