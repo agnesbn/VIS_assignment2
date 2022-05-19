@@ -66,16 +66,15 @@ python src/nn_classifier.py --dataset <DATASET> --model <NN_MODEL> (--epochs <EP
 - Input:
     - `<DATASET>` represents the given dataset you wish to train the model with. Here, you can put in either `cifar10` or `mnist784`.
     - `<NN_MODEL>` represents the given Neural Network model you wish to apply to the data. Here, you can put in `numpy`, `tensorflow`, `shallownet`, or `lenet`.
-    - `<EPOCHS>` represents the number of epochs you wish to train your data in. If the argument is omitted, the default value (15) is used.
+    - `<EPOCHS>` represents the number of epochs you wish to train your data in. If the argument is omitted, the default value, 15, is used.
 - The output is then saved in [`out/nn`](https://github.com/agnesbn/VIS_assignment2/tree/main/out/nn).
 
 ## 5. Discussion of results
 After running each model on both datasets for 15 epochs, the accuracy scores were:
-| **Accuracy after<br>15 epochs** 	| **Logistic** 	| **NumPy** 	| **TensorFlow** 	| **ShallowNet** 	| **LeNet** 	|
-|---------------------------------	|------------ 	|-----------	|----------------	|----------------	|-----------	|
-| **MNIST_784**                   	| 0.90      	  | 0.93      	| 0.92           	| 0.98           	| 0.97      	|
-| **CIFAR_10**                    	| 0.31      	  | 0.37      	| 0.42           	| 0.55           	| 0.51      	| 
-
+| Accuracy after 15 epochs 	| Logistic 	| NumPy 	| TensorFlow 	| ShallowNet 	| LeNet 	|
+|--------------------------	|----------	|-------	|------------	|------------	|-------	|
+| MNIST_784                	| 0.90     	| 0.93  	| 0.92       	| 0.98       	| 0.97  	|
+| CIFAR_10                 	| 0.31     	| 0.37  	| 0.42       	| 0.55       	| 0.51  	|
 
 The best performing model for both datasets was **ShallowNet** with 98% accuracy for MNIST_784 and 55% for CIFAR_10. What's more, the training curve for both the MNIST_784 and CIFAR_10 data suggests that with longer training time training loss would continuously decrease (and thus accuracy would continue to increase).
 
