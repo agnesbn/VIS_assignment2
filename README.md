@@ -66,7 +66,7 @@ python src/nn_classifier.py --dataset <DATASET> --model <NN_MODEL> (--epochs <EP
 - Input:
     - `<DATASET>` represents the given dataset you wish to train the model with. Here, you can put in either `cifar10` or `mnist784`.
     - `<NN_MODEL>` represents the given Neural Network model you wish to apply to the data. Here, you can put in `numpy`, `tensorflow`, `shallownet`, or `lenet`.
-    - `<EPOCHS>` represents the number of epochs you wish to train your data in. If the argument is omitted, the default value, 15, is used.
+    - `<EPOCHS>` represents the number of epochs you wish to train your data in. If the argument is omitted, the default value, `15`, is used.
 - The output is then saved in [`out/nn`](https://github.com/agnesbn/VIS_assignment2/tree/main/out/nn).
 
 ## 5. Discussion of results
