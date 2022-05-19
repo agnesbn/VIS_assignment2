@@ -6,7 +6,7 @@ The initial assignment was made partly in collaboration with others from the cou
 
 The [`neuralnetwork.py`](https://github.com/agnesbn/VIS_assignment2/blob/main/utils/neuralnetwork.py) script in the `utils` folder was made by Ross and the [`save_history()`](https://github.com/agnesbn/VIS_assignment2/blob/e8f29b235d99b65eaf6a0c4d89936ca5b6608a74/src/nn_classifier.py#L83) function was similarly inspired by one provided by Ross during the course.
 
-Furthermore, [this blog post](https://medium.com/mlearning-ai/lenet-and-mnist-handwritten-digit-classification-354f5646c590) helped me to get the **MNIST_784** data into the correct shape to train **LeNet** and **ShallowNet** models on it.
+Furthermore, [this blog post](https://medium.com/mlearning-ai/lenet-and-mnist-handwritten-digit-classification-354f5646c590) helped me to get the **MNIST_784** data into the correct shape for **LeNet** and **ShallowNet** models to train on it.
 
 ## 2. Assignment description
 ### Main task
