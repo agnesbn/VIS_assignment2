@@ -80,14 +80,13 @@ After running each model on both data sets for 15 epochs, the accuracy scores we
 
 The best performing model for both data sets was **ShallowNet** with 98% accuracy for MNIST_784 and 55% for CIFAR_10. What's more, the training curve for both the MNIST_784 and CIFAR_10 data suggests that with longer training time training loss would continuously decrease (and thus accuracy would continue to increase).
 
-**MNIST_784**                                                                                  |  **CIFAR_10**
-:---------------------------------------------------------------------------------------------:|:---------------------------------------------------------------------------------------------------------------------------------------------------:
-![]((https://github.com/agnesbn/VIS_assignment2/blob/main/out/nn/nn_MNIST_784_sn_history.png)  |  ![]([out/nn/nn_CIFAR_10_sn_history.png](https://github.com/agnesbn/VIS_assignment2/blob/main/out/nn/nn_CIFAR_10_sn_history.png))
+**MNIST_784**                            |  **CIFAR_10**
+:---------------------------------------:|:---------------------------------------:
+![](out/nn/nn_MNIST_784_sn_history.png)  |  ![](out/nn/nn_CIFAR_10_sn_history.png)
 
 The next best performing model was **LeNet** with 97% accuracy for MNIST_784 and 51% for CIFAR_10. Only the training curve for the CIFAR_10 data suggests that the training and test loss would decrease and thus accuracy increase with more training. The curve for MNIST_784 seems to have flattened out long before the 15th epoch. 
-
-**MNIST_784**                                                                                                                       |  **CIFAR_10**
-:----------------------------------------------------------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------------------------------------------------------------:
-![]([out/nn/nn_MNIST_784_ln_history.png](https://github.com/agnesbn/VIS_assignment2/blob/main/out/nn/nn_MNIST_784_ln_history.png))  |  ![]([out/nn/nn_CIFAR_10_ln_history.png](https://github.com/agnesbn/VIS_assignment2/blob/main/out/nn/nn_CIFAR_10_ln_history.png))
+**MNIST_784**                            |  **CIFAR_10**
+:---------------------------------------:|:---------------------------------------:
+![](out/nn/nn_MNIST_784_ln_history.png)  |  ![](out/nn/nn_CIFAR_10_ln_history.png)
 
 Changing the number of epochs relative to the input data and the model would most likely give better results than the ones provided here after 15 epochs training.
